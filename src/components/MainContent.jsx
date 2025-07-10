@@ -3,19 +3,13 @@ import PropTypes from 'prop-types';
 import AddTask from './AddTask';
 import { motion } from 'framer-motion';
 import { toast } from 'react-toastify';
-import TaskStats from './TaskStats'; // Optional: pie chart stats
+import TaskStats from './TaskStats';
 import './MainContent.css';
 
-const MainContent = ({ tasks, activeView, onAdd, onToggle, onDelete }) => {
+const MainContent = ({ tasks, activeView, onAdd, onToggle, onDelete, onUpdate }) => {
   const today = new Date().toISOString().split('T')[0];
   const [editingTaskId, setEditingTaskId] = useState(null);
   const [editedTaskData, setEditedTaskData] = useState({});
-
-  useEffect(() => {
-    if ('Notification' in window && Notification.permission !== 'granted') {
-      Notification.requestPermission();
-    }
-  }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -77,7 +71,7 @@ const MainContent = ({ tasks, activeView, onAdd, onToggle, onDelete }) => {
         ? { ...task, ...editedTaskData, notified: false }
         : task
     );
-    localStorage.setItem('tasks', JSON.stringify(updated));
+    onUpdate(updated); // ✅ Update parent state
     toast.success('✅ Task updated successfully!');
     setEditingTaskId(null);
   };
@@ -190,21 +184,12 @@ const MainContent = ({ tasks, activeView, onAdd, onToggle, onDelete }) => {
 };
 
 MainContent.propTypes = {
-  tasks: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      task: PropTypes.string.isRequired,
-      completed: PropTypes.bool.isRequired,
-      dueDate: PropTypes.string,
-      dueTime: PropTypes.string,
-      important: PropTypes.bool,
-      notified: PropTypes.bool,
-    })
-  ).isRequired,
+  tasks: PropTypes.array.isRequired,
   activeView: PropTypes.string.isRequired,
   onAdd: PropTypes.func.isRequired,
   onToggle: PropTypes.func.isRequired,
   onDelete: PropTypes.func.isRequired,
+  onUpdate: PropTypes.func.isRequired,
 };
 
 export default MainContent;
