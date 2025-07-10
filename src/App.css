@@ -36,3 +36,76 @@
     transform: rotate(360deg);
   }
 }
+
+.add-task-form {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+.add-task-form input {
+  padding: 8px;
+  border-radius: 5px;
+}
+.add-task-form button {
+  background: #007bff;
+  color: white;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 5px;
+}
+
+.task-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  margin-bottom: 10px;
+  background: #f8f8f8;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+}
+
+.task-item.done {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+/*layout */
+.app-layout {
+  display: flex;
+  min-height: 100vh;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/*Mobile Responsive */
+@media (max-width: 768px) {
+  .app-layout {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-around;
+    height: auto;
+    padding: 10px;
+  }
+
+  .main-content {
+    padding: 10px;
+    overflow-y: auto;
+  }
+
+  .task-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .task-content {
+    width: 100%;
+  }
+
+  .action-btns {
+    margin-top: 5px;
+    align-self: flex-end;
+  }
+}

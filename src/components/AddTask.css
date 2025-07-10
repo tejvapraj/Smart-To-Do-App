@@ -1,0 +1,76 @@
+.add-task-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.05);
+  margin-bottom: 24px;
+  align-items: center;
+}
+
+.add-task-form input[type="text"],
+.add-task-form input[type="date"],
+.add-task-form input[type="time"] {
+  flex: 1 1 200px;
+  padding: 10px 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: border 0.2s ease;
+}
+
+.add-task-form input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.add-task-form .checkbox {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  color: #444;
+  margin-right: auto;
+}
+
+.add-task-form button {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.add-task-form button:hover {
+  background: #0056b3;
+}
+
+.input-wrapper {
+  position: relative;
+  flex: 1 1 200px;
+  display: flex;
+  align-items: center;
+  background: #f8f8f8;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 8px 12px;
+}
+
+.input-wrapper span {
+  margin-right: 8px;
+  font-size: 18px;
+  color: #777;
+}
+
+.input-wrapper input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  font-size: 14px;
+  outline: none;
+}

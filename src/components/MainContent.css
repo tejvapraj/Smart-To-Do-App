@@ -1,0 +1,154 @@
+.main-content {
+  flex: 1;
+  background-color: #f4f5fd; /* lavender white */
+  padding: 32px;
+  overflow-y: auto;
+}
+
+
+.main-content h2 {
+  color: #2d3436; /* dark text */
+}
+
+/* Add button styling */
+button {
+  background-color: #6c5ce7;
+  color: white;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background 0.3s ease;
+}
+
+button:hover {
+  background-color: #4834d4;
+}
+
+.task-list {
+  list-style: none;
+  padding: 0;
+}
+
+.task-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 16px;
+  margin-bottom: 14px;
+  transition: transform 0.2s ease;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(91, 95, 151, 0.08);
+}
+
+
+.task-item:hover {
+  transform: translateY(-2px);
+}
+
+.task-item.completed .task-text {
+  text-decoration: line-through;
+  color: #aaa;
+}
+
+.task-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.task-text {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.meta {
+  display: flex;
+  gap: 8px;
+  margin-top: 4px;
+  flex-wrap: wrap;
+}
+
+.badge {
+  background: #f0f0f0;
+  padding: 2px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  color: #333;
+}
+
+.badge.important {
+  background: gold;
+  color: #222;
+  font-weight: 500;
+}
+
+.delete-btn {
+  background: transparent;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 6px;
+}
+
+/*Edit task */
+.edit-task-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.edit-task-form input[type="text"],
+.edit-task-form input[type="date"],
+.edit-task-form input[type="time"] {
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.edit-task-form label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+}
+
+.edit-task-form button {
+  padding: 6px 12px;
+  font-size: 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.edit-task-form button:first-of-type {
+  background: #28a745;
+  color: white;
+}
+
+.edit-task-form button:last-of-type {
+  background: #dc3545;
+  color: white;
+}
+
+.action-btns {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+/* Calander */
+.calendar-link {
+  font-size: 0.8rem;
+  margin-left: 10px;
+  color: #5e35b1;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.calendar-link:hover {
+  color: #311b92;
+}
