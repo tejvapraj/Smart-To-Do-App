@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Sidebar from "./components/Sidebar";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer  } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import MainContent from "./components/MainContent"; // You'll create this next
 import "./App.css";
