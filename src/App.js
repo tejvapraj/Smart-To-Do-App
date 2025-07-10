@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Sidebar from "./components/Sidebar";
-import { ToastContainer  } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import MainContent from "./components/MainContent"; // You'll create this next
+import MainContent from "./components/MainContent";
 import "./App.css";
 
 function App() {
@@ -13,16 +13,15 @@ function App() {
 
   const [activeView, setActiveView] = useState("today");
 
- // 🔔 Request Notification Permission (once)
+  // 🔔 Request Notification Permission (once)
   useEffect(() => {
     if ("Notification" in window && Notification.permission !== "granted") {
       Notification.requestPermission();
     }
   }, []);
 
-  // 💾 Save tasks to localStorage
+  // 💾 Save tasks to localStorage on any update
   useEffect(() => {
-    console.log("Saving tasks to localStorage:", tasks);
     localStorage.setItem("tasks", JSON.stringify(tasks));
   }, [tasks]);
 
@@ -42,6 +41,10 @@ function App() {
     setTasks(updated);
   };
 
+  const handleUpdateTasks = (updatedTasks) => {
+    setTasks(updatedTasks);
+  };
+
   return (
     <div className="app-layout">
       <Sidebar activeView={activeView} setActiveView={setActiveView} />
@@ -51,6 +54,7 @@ function App() {
         onAdd={handleAddTask}
         onToggle={handleToggleTask}
         onDelete={handleDeleteTask}
+        onUpdate={handleUpdateTasks}
       />
       <ToastContainer position="top-right" autoClose={7000} />
     </div>
